@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSCI527 Parking Mania</title>
+	<style type="text/css">
+		.main-container{
+			display: flex;
+			flex-direction: column;
+		}
+		.heading{
+			text-align: center;
+			padding-top:5px;
+		}
+		.overview{
+			text-align: center;
+			padding: 5%;
+			padding-left: 8%;
+			padding-right: 8%; 
+			font-size: 20px;
+		}
+		.content{
+			background-color: #f75448;
+			color: white;
+		}
+		.sub-content{
+			margin:2%;
+			margin-top: 0px;
+			width:29%;
+			display: inline-block;
+			float: left;
+		}
+		.demo{
+			text-align: center;
+			margin-top: 3%;
+		}
+		.content-heading{
+			text-align: center;
+			font-size: 24px;
+		}
+		.content-para{
+			text-align: justify;
+			font-size: 20px;
+		}
+		.team{
+			text-align: center;
+			background-color: #f75448;
+			color: white;
+			font-size: 20px;
+		}
+		.button-link{
+			margin:3%;
+		}
+		a{
+			text-decoration: underline;
+			color: white;
+		}
+		button{
+			background-color: #f75448;
+			font-size: 20px;
+			color: white;
+			padding: 15px;
+			width: 20%;
+			border-radius: 5px;
+			border-style: none;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="main-container">
+
+		<div class="heading">
+			<h1 style="font-size: 28px">Parking Mania</h1>
+			<p style="font-size: 20px"><i>Agent that automatically parks the car in availble parking spot</i></p>
+			<img src="ParkingManiaSS.png" width="90%">
+		</div>
+
+		<div class="overview">
+			<h1 style="font-size: 28px">Overview of the project</h1>
+			<p>
+				The goal of the project is to create an agent that can autonomously park in a video game environment. We chose to create our own version of Parking Mania by creating an environment using Unity, because of its ease of use and how it provides us with the ability to create realistic parking scenarios. At the end we aim to equip our agent with the ability to park successfully in the required spot, by using reinforcement learning and providing it with rewards and penalties for each move. 
+			</p>
+		</div>
+
+		<div class="content">
+			<div class="sub-content">
+				<h3 class="content-heading">Environment</h3>
+				<p class="content-para">
+					We designed the environment using the Unity editor, one of the most widely used frameworks for game development. With its added support to train in the extensive support of ML agents we decided to develop our own version of Parking Mania in Unity. The environment has trees, walls (the periphery of the parking area), other car spots,the plane, road lights and also the miniscule objects associated with our very important part of training that is our agent. For our car agent, we have associated front rays, back rays,wheels, body, center of mass. 
+				</p>
+			</div>
+			<div class="sub-content">
+				<h3 class="content-heading">Approach</h3>
+				<p class="content-para">
+					Reinforcement learning enables the AI agent to learn from its past experience (by trial and error) as to which actions to take. In our case, giving a negative reward to our agent, whenever it hits an obstacle would eventually make it learn to avoid them. Similarly a positive reward after successful parking, would indicate a good move. Initially, while interacting with the environment, our agent would follow a random policy, but gradually with the help of well defined rewards, it will learn to park the car successfully without collision. 
+				</p>
+			</div>
+			<div class="sub-content">
+				<h3 class="content-heading">Algorithm Used</h3>
+				<p class="content-para">
+					As per our environment adaptability we decided to go with PPO. PPO strikes a balance between ease of implementation, sample complexity, and ease of tuning, trying to compute an update at each step that minimizes the cost function while ensuring the deviation from the previous policy is relatively small. Our agent was trained by collecting a small batch of experiences interacting with the environment and using that batch to update its decision-making policy. Once the policy is updated with this batch, the experiences are thrown away and a newer batch is collected with the newly updated policy. 
+				</p>
+			</div>
+		</div>
+
+		<div class="demo">
+			<h1>Demo</h1>
+			<center>
+				<video width="700" height="300" controls>
+                    <source src="Final Video_Slomo.mp4" type="video/mp4">
+                </video>
+			</center>
+		</div>
+
+		<div class="button-link">
+			<a href=""><button style="margin-left: 8%;">EDD Link</button></a>
+			<a href=""><button style="margin-left: 10%;">Technical Paper</button></a>
+			<a href=""><button style="margin-left: 10%;">Github Link</button></a>
+		</div>
+
+		<div class="team">
+			<h1 style="font-size: 28px">Team Members</h1>
+			<a href="https://www.linkedin.com/in/dennis-mistry-baa2b2116/"><p>Dennis Mistry</p></a>
+			<a href="https://www.linkedin.com/in/shah-dharmin/"><p>Dharmin Shah</p></a>
+			<a href="https://www.linkedin.com/in/naiya-shah-5b0800183/"><p>Naiya Shah</p></a>
+			<a href="https://www.linkedin.com/in/priyanshi-vora-2bab26188/"><p>Priyanshi Vora</p></a>
+			<a href="https://www.linkedin.com/in/sagarmakwana96/"><p>Sagar Makwana</p></a>
+			<a href="https://www.linkedin.com/in/shriyakatoch/"><p>Shriya Katoch</p></a>
+		</div>
+	</div>
+
+</body>
+</html>
